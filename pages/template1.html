@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Sale</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .background-image {
+            background-image: url('../assets/images/image.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            width: 100%;
+            max-width: 60%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .side-text {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 5px 20px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            height: 30px;
+        }
+
+        .top-left {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .top-right {
+            right: 220px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        .bottom-left {
+            left: 220px;
+            bottom: 50%;
+            transform: translateY(50%) rotate(-90deg);
+        }
+
+        .bottom-right {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .half-circle {
+            position: absolute;
+            top: 40%; /* Adjusted */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100px;
+            width: 200px;
+            border-radius: 150px 150px 0 0;
+            background-color: white;
+        }
+
+        .inner-circle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #000000;
+            color: white;
+            position: absolute;
+            top: 48%; /* Centered between the two half circles */
+            left: 50%;
+            transform: translate(-50%, -50%); /* Perfectly centered */
+            z-index: 1; /* Make sure it stays above the half-circles */
+        }
+
+        .bottom-half-circle {
+            position: absolute;
+            top: 59%; /* Adjusted */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100px;
+            width: 200px;
+            border-radius: 0 0 150px 150px;
+            background-color: white;
+        }
+
+        .percentage {
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        .off {
+            font-weight: normal;
+            font-size: 30px;
+        }
+
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .website {
+            font-size: 16px;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-image"></div>
+        <div class="overlay">
+            <div>
+                <div class="side-text top-left">samplewebsite.com</div>
+                <div class="side-text top-right">samplewebsite.com</div>
+                <div class="side-text bottom-left">samplewebsite.com</div>
+                <div class="side-text bottom-right">samplewebsite.com</div>
+            </div>
+            <div class="middle-part"> 
+                <div class="half-circle">
+                    <svg viewBox="0 0 100 50" class="arc">
+                        <path id="flash-path" d="M10,40 A48,50 20, 0,1 90,45" fill="transparent"></path>
+                        <text font-weight="bold" fill="#000000" style="font-family: 'serif', sans-serif;">  
+                            <textPath xlink:href="#flash-path" startOffset="50%" text-anchor="middle">
+                                F L A S H
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <div class="inner-circle">
+                    <span class="percentage">99%</span>
+                    <span class="off">off</span>
+                </div>
+                <div class="bottom-half-circle">
+                    <svg viewBox="0 0 100 50" class="arc">
+                        <path id="sale-path" d="M20,20 A45,45 0 0,0 80,20" fill="transparent"></path>
+                        <text font-weight="bold" fill="#000000" style="font-family: 'serif', sans-serif;">  
+                            <textPath xlink:href="#sale-path" startOffset="50%" text-anchor="middle">
+                                S A L E
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
